@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do You Like Me?</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+      }
+
+      .card {
+        width: 550px;
+        padding: 40px;
+        border-radius: 30px;
+        background: white;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #ff4f81;
+        margin-bottom: 12px;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .buttons {
+        position: relative;
+        height: 120px;
+      }
+
+      button {
+        border: none;
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+        position: absolute;
+        min-width: 150px;
+      }
+
+      #yesBtn {
+        left: 60px;
+        background: #ff4f81;
+        color: white;
+      }
+
+      #yesBtn:hover {
+        transform: scale(1.08);
+      }
+
+      #noBtn {
+        right: 60px;
+        background: #f1f1f1;
+        color: #444;
+      }
+
+      .success {
+        margin-top: 20px;
+        color: #ff4f81;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: none;
+        animation: pop 0.4s ease;
+        text-align: center;
+      }
+
+      @keyframes pop {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .image-ye {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        display: none;
+      }
+      #succ {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 450px;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card" id="card">
+      <h1>Do You Like Me? 💖</h1>
+      <p>ตอบดีๆนะ 😳</p>
+
+      <div class="buttons">
+        <button id="yesBtn">คิดถึงสิ 💕</button>
+        <button id="noBtn">ไม่เห็นจะคิดถึงเลย 😈</button>
+      </div>
+    </div>
+
+    <div id="succ" style="display: none">
+      <img
+        src="https://i.pinimg.com/736x/3a/3f/0d/3a3f0dc5a222344fef6f29cb3fb4f59e.jpg"
+        class="image-ye"
+        id="image-ye"
+      />
+      <div class="success" id="successText">
+        เย้ยย~ รู้แล้วว่าต้องตอบแบบนี้ 🥰
+      </div>
+      <p class="success" id="successText2">
+        คิดถึงเหมือนกันน้าาาา เมื่อไหร่จะตอนกลางคืนเนี่ย อยากเติมพยาบาลละ
+      </p>
+    </div>
+    <script>
+      const noBtn = document.getElementById("noBtn");
+      const yesBtn = document.getElementById("yesBtn");
+      const successText = document.getElementById("successText");
+      const successText2 = document.getElementById("successText2");
+      noBtn.addEventListener("click", () => {
+        const maxX = window.innerWidth - 400;
+        const maxY = window.innerHeight - 400;
+        console.log(maxX, maxY);
+        const randomX = Math.random() * 400;
+        const randomY = Math.random() * 400;
+
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+      });
+
+      yesBtn.addEventListener("click", () => {
+        const succ = document.getElementById("succ");
+        const cardElement = document.getElementById("card");
+        cardElement.style.display = "none";
+        const imageYe = document.getElementById("image-ye");
+        imageYe.style.display = "block";
+        successText.style.display = "block";
+        succ.style.display = "flex";
+        successText2.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
