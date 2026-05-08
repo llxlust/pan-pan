@@ -46,6 +46,9 @@
       .buttons {
         position: relative;
         height: 120px;
+        width: 100%;
+        display: flex;
+        gap: 10px;
       }
 
       button {
@@ -60,7 +63,7 @@
       }
 
       #yesBtn {
-        left: 60px;
+        left: 150px;
         background: #ff4f81;
         color: white;
       }
@@ -70,7 +73,8 @@
       }
 
       #noBtn {
-        right: 60px;
+        top: 70px;
+        left: 130px;
         background: #f1f1f1;
         color: #444;
       }
@@ -146,8 +150,8 @@
         const maxX = window.innerWidth - 400;
         const maxY = window.innerHeight - 400;
         console.log(maxX, maxY);
-        const randomX = Math.random() * 400;
-        const randomY = Math.random() * 400;
+        const randomX = Math.random() * 100;
+        const randomY = Math.random() * 100;
 
         noBtn.style.left = `${randomX}px`;
         noBtn.style.top = `${randomY}px`;
